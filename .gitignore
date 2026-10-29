@@ -1,0 +1,103 @@
+# ---------------------------
+
+# Python
+
+# ---------------------------
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+
+venv/
+env/
+.venv/
+
+# ---------------------------
+
+# Jupyter Notebook
+
+# ---------------------------
+
+.ipynb_checkpoints
+
+# ---------------------------
+
+# Data files
+
+# ---------------------------
+
+data/*
+!data/.gitkeep
+
+*.csv
+*.parquet
+*.feather
+*.hdf5
+
+# ---------------------------
+
+# Logs
+
+# ---------------------------
+
+*.log
+
+# ---------------------------
+
+# Environment variables
+
+# ---------------------------
+
+.env
+
+# ---------------------------
+
+# Docker
+
+# ---------------------------
+
+docker-compose.override.yml
+
+# ---------------------------
+
+# IDE / Editor
+
+# ---------------------------
+
+.vscode/
+.idea/
+
+# ---------------------------
+
+# OS files
+
+# ---------------------------
+
+.DS_Store
+Thumbs.db
+
+# ---------------------------
+
+# Kaggle credentials
+
+# ---------------------------
+
+kaggle.json
+.ai-jail
+
+# ---------------------------
+
+# Generated reports
+
+# ---------------------------
+
+reports/**/*.html

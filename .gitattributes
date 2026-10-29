@@ -1,0 +1,11 @@
+* text=auto
+
+# Force LF for important files
+*.sh text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.ipynb text eol=lf
+Dockerfile text eol=lf
+
+*.ipynb filter=nbstripout

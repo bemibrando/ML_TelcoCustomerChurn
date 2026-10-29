@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  eda:
+    build: .
+    container_name: telco-customer
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+    command: sleep infinity
