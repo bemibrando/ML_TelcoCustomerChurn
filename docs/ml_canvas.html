@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -300,11 +300,11 @@
 <body>
 
 <div id="error-banner">
-  <strong>Como visualizar este canvas</strong><br><br>
-  O browser bloqueia leitura de arquivos locais. Abra um terminal em <code>docs/</code> e rode:<br><br>
+  <strong>How to view this canvas</strong><br><br>
+  The browser blocks reading local files. Open a terminal in <code>docs/</code> and run:<br><br>
   <code>python -m http.server 8080</code><br><br>
-  Depois acesse: <code>http://localhost:8080/docs/ml_canvas.html</code><br><br>
-  Para editar o conteúdo, modifique <code>ml_canvas.json</code> e recarregue a página.
+  Then open: <code>http://localhost:8080/docs/ml_canvas.html</code><br><br>
+  To edit the content, modify <code>ml_canvas.json</code> and reload the page.
 </div>
 
 <div class="canvas-wrapper" id="canvas-wrapper" style="display:none">
@@ -319,7 +319,7 @@
     <div class="meta-fields">
       <div class="meta-field">
         <label>Designed For</label>
-        <input id="m-for" value="Operadora de Telecomunicações" />
+        <input id="m-for" value="Telecom Operator" />
       </div>
       <div class="meta-field">
         <label>Designed by</label>
@@ -341,7 +341,7 @@
 
   <!-- FOOTER -->
   <div class="canvas-footer">
-    <div class="footer-left">Tech Challenge · Fase 1 · MLE PÓS<br><span id="footer-team-str"></span></div>
+    <div class="footer-left">Tech Challenge · Phase 1 · MLE Postgrad<br><span id="footer-team-str"></span></div>
     <div class="footer-tags" id="footer-tags"></div>
     <div class="footer-right"><strong>ML Canvas</strong>Churn Prediction Pipeline</div>
   </div>
@@ -374,7 +374,7 @@
     document.getElementById('canvas-wrapper').style.display = 'block';
 
     document.getElementById('m-by').value   = D.team.map(t => t.split('—')[0].trim()).join(', ');
-    document.getElementById('m-date').value = new Date().toLocaleDateString('pt-BR');
+    document.getElementById('m-date').value = new Date().toLocaleDateString('en-US');
 
     const g = document.getElementById('canvas-grid');
     const bd  = D.business_drivers;
@@ -393,16 +393,16 @@
     <div class="section area-bd">
       ${header('Business Drivers', 'blue')}
       <div class="section-body">
-        ${noteT('Problema de Negócio', `<p>${bd.problema}</p>`, 'blue')}
+        ${noteT('Business Problem', `<p>${bd.problema}</p>`, 'blue')}
         ${noteT('Stakeholders', ul(bd.stakeholders))}
-        ${noteT('Métricas de Negócio', `
+        ${noteT('Business Metrics', `
           <ul>
             <li><b>KPI:</b> ${kpi.kpi_principal}</li>
-            <li><b>Financeiro:</b> ${kpi.impacto_financeiro}</li>
-            <li><b>Eficiência:</b> ${kpi.eficiencia}</li>
+            <li><b>Financial:</b> ${kpi.impacto_financeiro}</li>
+            <li><b>Efficiency:</b> ${kpi.eficiencia}</li>
             <li><b>ROI:</b> ${kpi.roi}</li>
           </ul>`, 'orange')}
-        ${noteT('Perguntas de Negócio', ul(D.perguntas_negocio), 'green')}
+        ${noteT('Business Questions', ul(D.perguntas_negocio), 'green')}
       </div>
     </div>`;
 
@@ -411,11 +411,11 @@
     <div class="section area-aa">
       ${header('Acceptable Accuracy & Trade-offs', 'pink')}
       <div class="section-body">
-        ${noteT('Decisão', `<p>${aa.decisao}</p>`, 'purple')}
-        ${noteT('Falso Negativo — Alto Risco', `<p>${aa.falsos_negativos}</p>`, 'pink')}
-        ${noteT('Falso Positivo — Risco Médio', `<p>${aa.falsos_positivos}</p>`, 'orange')}
-        ${noteT('Métricas Técnicas', ul(aa.metricas_tecnicas), 'blue')}
-        ${noteT('Premissas', ul(D.premissas), 'green')}
+        ${noteT('Decision', `<p>${aa.decisao}</p>`, 'purple')}
+        ${noteT('False Negative — High Risk', `<p>${aa.falsos_negativos}</p>`, 'pink')}
+        ${noteT('False Positive — Medium Risk', `<p>${aa.falsos_positivos}</p>`, 'orange')}
+        ${noteT('Technical Metrics', ul(aa.metricas_tecnicas), 'blue')}
+        ${noteT('Assumptions', ul(D.premissas), 'green')}
       </div>
     </div>`;
 
@@ -424,9 +424,9 @@
     <div class="section area-data">
       ${header('Data Type / Speed / Size', 'green')}
       <div class="section-body">
-        ${noteT('Tipo', `<p>${dt.tipo}</p>`)}
+        ${noteT('Type', `<p>${dt.tipo}</p>`)}
         ${noteT('Volume', `<p>${dt.tamanho}</p>`, 'green')}
-        ${noteT('Velocidade', `<p>${dt.velocidade}</p>`, 'blue')}
+        ${noteT('Speed', `<p>${dt.velocidade}</p>`, 'blue')}
       </div>
     </div>`;
 
@@ -447,9 +447,9 @@
       ${header('Goal', 'purple')}
       <div class="section-body">
         ${noteT('Data Science', `<p>${gl.objetivo_ciencia_dados}</p>`, 'blue')}
-        ${noteT('Negócio', ul(gl.objetivo_negocio), 'green')}
-        ${noteT('Técnico', `<p>${gl.objetivo_tecnico}</p>`)}
-        ${noteT('Avançado', `<p>${gl.objetivo_cd_avancado}</p>`, 'purple')}
+        ${noteT('Business', ul(gl.objetivo_negocio), 'green')}
+        ${noteT('Technical', `<p>${gl.objetivo_tecnico}</p>`)}
+        ${noteT('Advanced', `<p>${gl.objetivo_cd_avancado}</p>`, 'purple')}
       </div>
     </div>`;
 
@@ -465,7 +465,7 @@
     <div class="section area-model">
       ${header('Model Type', 'blue')}
       <div class="section-body">
-        ${noteT('Modelo Principal', `<p>${mt.principal}</p>`, 'blue')}
+        ${noteT('Main Model', `<p>${mt.principal}</p>`, 'blue')}
         ${noteT('Baselines', ul(mt.baselines))}
       </div>
     </div>`;
@@ -475,9 +475,9 @@
     <div class="section area-interv">
       ${header('Intervention', 'orange')}
       <div class="section-body">
-        ${noteT('Ação', `<p>${iv.acao}</p>`)}
-        ${noteT('Estratégias', ul(iv.estrategias), 'green')}
-        ${noteT('Critério de Ativação', `<p>${iv.criterio_ativacao}</p>`, 'pink')}
+        ${noteT('Action', `<p>${iv.acao}</p>`)}
+        ${noteT('Strategies', ul(iv.estrategias), 'green')}
+        ${noteT('Activation Criterion', `<p>${iv.criterio_ativacao}</p>`, 'pink')}
       </div>
     </div>`;
 
@@ -486,8 +486,8 @@
     <div class="section area-upstream">
       ${header('Upstream', 'teal')}
       <div class="section-body row">
-        ${noteT('Fonte de Dados', `<p>${up.fonte}</p>`, 'blue')}
-        ${noteT('Pré-processamento', ul(up.processamento))}
+        ${noteT('Data Source', `<p>${up.fonte}</p>`, 'blue')}
+        ${noteT('Preprocessing', ul(up.processamento))}
       </div>
     </div>`;
 
@@ -499,9 +499,9 @@
     <div class="section area-downstream">
       ${header('Downstream', 'purple')}
       <div class="section-body row">
-        ${noteT('Entrega via API', `<p>${ds.entrega}</p>`, 'blue')}
-        ${noteT('Monitoramento', `<p>${ds.monitoramento.descricao}</p>${ul(ds.monitoramento.escopo)}`, 'green')}
-        ${noteT('Re-treinamento', `<p>${ds.retraining}</p>`, 'pink')}
+        ${noteT('API Delivery', `<p>${ds.entrega}</p>`, 'blue')}
+        ${noteT('Monitoring', `<p>${ds.monitoramento.descricao}</p>${ul(ds.monitoramento.escopo)}`, 'green')}
+        ${noteT('Retraining', `<p>${ds.retraining}</p>`, 'pink')}
       </div>
     </div>`;
 
